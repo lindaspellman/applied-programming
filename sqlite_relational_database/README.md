@@ -1,6 +1,6 @@
 # Overview
 
-Currently, I don't have any work to show for this project as of starting it about two weeks ago, so I'm going to continue this project for the next two weeks.
+Currently, I don't have any work to show for this project as of starting it about two weeks ago, so I'm going to continue this project for the next two weeks. No need to read further right now.
 
 
 # Relational Database
