@@ -12,7 +12,7 @@ import sqlite3 as s
 # borrower TABLE: borrower_id, first_name, last_name
 # A borrower can have many books 
 # book TABLE: book_id, author_first, author_last, summary, page_number, borrower_last_issued, issue_duration
-# %%
+
 # connect to library database
 con = s.connect('c:\sqlite\db\library.db')
 
@@ -21,13 +21,24 @@ con = s.connect('c:\sqlite\db\library.db')
 df = pd.read_sql_query("""
 
 CREATE TABLE book
-    ( book_id, author_first, author_last, summary, page_number, borrower_last_issued, issue_duration)
+    ( book_id, title, author_first, author_last, summary, page_count, borrower_last_issued, issue_duration)
 
 """, con)
 
 # %%
 # insert data into book table 
+book_data = pd.read_sql_query("""
 
+INSERT INTO book
+    ( 1, "Harry Potter and the Sorceror's Stone", "JK", "Rowling", "A young boy learns he's a wizard and attends his first year at a magical boarding school.", ) 
+""", con)
+
+# %%
+drop_table = pd.read_sql_query("""
+
+DROP TABLE book
+
+""", con) 
 
 # %%
 """
@@ -59,6 +70,9 @@ sqlite>
 
 # To show all databases in the current connection
 .databases
+
+# To show all tables
+.table
 
 # To add an additional database in the current connection
 sqlite> ATTACH DATABASE "c:\sqlite\db\chinook.db" AS chinook;
